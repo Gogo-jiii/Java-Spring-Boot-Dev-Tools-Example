@@ -75,9 +75,9 @@ public class JpaExampleApplication {
 //			System.out.println("No data found!");
 //		}
 
-		//delete all data
-		userRepository.deleteAll();
-		System.out.println("Deleted all.");
+//		//delete all data
+//		userRepository.deleteAll();
+//		System.out.println("Deleted all.");
 	}
 
 }
