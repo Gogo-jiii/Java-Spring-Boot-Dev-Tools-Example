@@ -19,7 +19,14 @@ public class JpaExampleApplication {
 		ApplicationContext context = SpringApplication.run(JpaExampleApplication.class, args);
 		userRepository = context.getBean(UserRepository.class);
 
-		//doCRUDOperation();
+		// doCRUDOperation();
+		//doCustomQuery();
+	}
+
+	private static void doCustomQuery() {
+		// TODO Auto-generated method stub
+		User user = userRepository.findByNameAndStatusAndCityNot("Vaibhav 1", "live", "Kalyan 1");
+		System.out.println("User : " + user);
 	}
 
 	private static void doCRUDOperation() {
@@ -42,8 +49,8 @@ public class JpaExampleApplication {
 		List<User> users = List.of(user1, user2, user3);
 		userRepository.saveAll(users);
 		System.out.println("Done");
-
-		// get data
+//
+//		// get data
 		Optional<User> optional = userRepository.findById(88);
 		if (optional.isPresent()) {
 			User user = optional.get();
@@ -52,13 +59,13 @@ public class JpaExampleApplication {
 			System.out.println("No data found!");
 		}
 
-		// get all data
+//		// get all data
 		Iterable<User> iterable = userRepository.findAll();
 		iterable.forEach(user -> {
 			System.out.println(user);
 		});
-
-		// update data
+//
+//		// update data
 		Optional<User> optional1 = userRepository.findById(6);
 		if (optional1.isPresent()) {
 			User user = optional1.get();
@@ -69,8 +76,8 @@ public class JpaExampleApplication {
 		} else {
 			System.out.println("No data found!");
 		}
-
-		// delete data
+//
+//		// delete data
 		Optional<User> optional2 = userRepository.findById(6);
 		if (optional2.isPresent()) {
 			User user = optional2.get();
@@ -80,8 +87,8 @@ public class JpaExampleApplication {
 		} else {
 			System.out.println("No data found!");
 		}
-
-//		//delete all data
+//
+////		//delete all data
 		userRepository.deleteAll();
 		System.out.println("Deleted all.");
 

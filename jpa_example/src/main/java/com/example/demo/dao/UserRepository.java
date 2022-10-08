@@ -6,4 +6,5 @@ import com.example.demo.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Integer>{
 
+	public User findByNameAndStatusAndCityNot(String name, String status, String city);
 }
