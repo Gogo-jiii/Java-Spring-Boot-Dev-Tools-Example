@@ -20,10 +20,21 @@ public class JpaExampleApplication {
 		userRepository = context.getBean(UserRepository.class);
 
 		// doCRUDOperation();
-		//doCustomQuery();
+		//useFindMethods();
+		//useQuery();
 	}
 
-	private static void doCustomQuery() {
+	private static void useQuery() {
+		List<User> users = userRepository.getAllUsers();
+		System.out.println(users + "\n");
+		
+		System.out.println("--------------------------------------");
+		
+		User user = userRepository.getUserByName("Vaibhav 1");
+		System.out.println(user + "\n");
+	}
+
+	private static void useFindMethods() {
 		// TODO Auto-generated method stub
 		User user = userRepository.findByNameAndStatusAndCityNot("Vaibhav 1", "live", "Kalyan 1");
 		System.out.println("User : " + user);
